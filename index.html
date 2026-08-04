@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>How much do you know about our animal agriculture?</title>
+
+<style>
+body {
+    font-family: Arial, sans-serif;
+    max-width: 900px;
+    margin: auto;
+    padding: 20px;
+    background:#f5f5f5;
+    line-height:1.2;
+    font-size: 26px;
+}
+
+h1 {
+    text-align:center;
+}
+
+.question {
+    background:white;
+    padding:20px;
+    margin:20px 0;
+    border-radius:8px;
+}
+
+.question p {
+    font-size: 42px;
+    font-weight: semibold;
+}
+
+.option {
+    display:block;
+    width:100%;
+    text-align:left;
+    padding:14px;
+    margin:8px 0;
+    border:1px solid #ccc;
+    border-radius:6px;
+    background:#fafafa;
+    cursor:pointer;
+    font-size:40px;
+}
+
+.option:hover {
+    background:#e8f5e9;
+}
+
+.option.selected {
+    background:#c8e6c9;
+    border-color:#4CAF50;
+}
+
+.feedback {
+    margin-top:20px;
+    padding:18px;
+    background:#f0f0f0;
+    border-radius:6px;
+    font-size: 32px;
+}
+
+.correct {
+    color:green;
+    font-weight:bold;
+    font-size: 32px;
+}
+
+.incorrect {
+    color:red;
+    font-weight:bold;
+    font-size: 32px;
+}
+
+button.submit {
+    background:#4CAF50;
+    color:white;
+    padding:28px 50px;
+    border:none;
+    border-radius:6px;
+    cursor:pointer;
+    font-size:50px;
+}
+
+#score {
+    font-size: 46px;
+    font-weight: bold;
+    text-align: center;
+    color: #2e7d32;
+    margin-bottom: 30px;
+}
+
+.langButton {
+    padding:12px 25px;
+    margin:5px;
+    font-size:20px;
+    cursor:pointer;
+    border-radius:6px;
+    border:1px solid #999;
+    background:#fff;
+}
+
+.langButton:hover {
+    background:#eee;
+}
+</style>
+
+</head>
+
+<body>
+
+<h1>
+    <span class="en">How much do you know about our animal agriculture?</span>
+    <span class="fi" style="display:none">Kuinka paljon tiedät eläintuotannosta?</span>
+</h1>
+
+<!-- LANGUAGE TOGGLE -->
+<div style="text-align:center;margin:20px 0;">
+    <button type="button" class="langButton" onclick="setLanguage('en')">🇬🇧 English</button>
+    <button type="button" class="langButton" onclick="setLanguage('fi')">🇫🇮 Suomi</button>
+</div>
+
+<h2 id="score"></h2>
+
+<form id="quizForm">
+
+<!-- QUESTION 1 -->
+<div class="question" id="q1">
+    <p><b>
+        <span class="en">1. What usually happens to male chicks in the egg industry once they are hatched?</span>
+        <span class="fi" style="display:none">1. Mitä kukkotipuille yleensä tapahtuu kananmunatuotannossa kuoriutumisen jälkeen?</span>
+    </b></p>
+
+    <button type="button" class="option" onclick="selectAnswer('q1','A',this)">
+        <span class="en">A) They are raised for meat</span>
+        <span class="fi" style="display:none">A) Heidät kasvatetaan lihantuotantoa varten</span>
+    </button>
+    <button type="button" class="option" onclick="selectAnswer('q1','B',this)">
+        <span class="en">B) They become egg laying hens later</span>
+        <span class="fi" style="display:none">B) Heistä tulee myöhemmin munivia kanoja</span>
+    </button>
+    <button type="button" class="option" onclick="selectAnswer('q1','C',this)">
+        <span class="en">C) They are thrown into macerators and crushed within 72hrs of hatching because they are not profitable for the industry</span>
+        <span class="fi" style="display:none">C) Heidät heitetään silppuriin ja murskataan elävältä 72 tunnin sisällä kuoriutumisesta, koska he eivät ole teollisuudelle kannattavia.</span>
+    </button>
+    <button type="button" class="option" onclick="selectAnswer('q1','D',this)">
+        <span class="en">D) They are released onto farms where they grow to live a comfortable life</span>
+        <span class="fi" style="display:none">D) Heidät päästetään maatiloille kasvamaan vapaasti.</span>
+    </button>
+
+    <div class="feedback" id="feedback1"></div>
+</div>
+
+<!-- QUESTION 2 -->
+<div class="question" id="q2">
+    <p><b>
+        <span class="en">2. How old do you think a dairy cow could naturally live? How old is she typically when sent to slaughter?</span>
+        <span class="fi" style="display:none">2. Kuinka vanhaksi lypsylehmä voisi luonnostaan elää? Minkä ikäisenä hänet yleensä lähetetään teurastettavaksi?</span>
+    </b></p>
+
+    <button type="button" class="option" onclick="selectAnswer('q2','A',this)">
+        <span class="en">A) Natural lifespan: 9 to 10 yrs. Slaughtered at 7 to 8 yrs.</span>
+        <span class="fi" style="display:none">A) Luontainen elinikä: 9–10 vuotta. Teurastetaan 7–8-vuotiaana.</span>
+    </button>
+    <button type="button" class="option" onclick="selectAnswer('q2','B',this)">
+        <span class="en">B) Natural lifespan: 5 yrs. Slaughtered at 5 yrs.</span>
+        <span class="fi" style="display:none">B) Luontainen elinikä: 5 vuotta. Teurastetaan 5-vuotiaana.</span>
+    </button>
+    <button type="button" class="option" onclick="selectAnswer('q2','C',this)">
+        <span class="en">C) Natural lifespan: 15 to 20 yrs. Slaughtered at 4 to 5 yrs.</span>
+        <span class="fi" style="display:none">C) Luontainen elinikä: 15–20 vuotta. Teurastetaan 4–5-vuotiaana.</span>
+    </button>
+    <button type="button" class="option" onclick="selectAnswer('q2','D',this)">
+        <span class="en">D) Natural lifespan: 9 to 10 yrs. Slaughtered at 9 to 10 yrs.</span>
+        <span class="fi" style="display:none">D) Luontainen elinikä: 9–10 vuotta. Teurastetaan 9–10-vuotiaana.</span>
+    </button>
+
+    <div class="feedback" id="feedback2"></div>
+</div>
+
+<!-- QUESTION 3 -->
+<div class="question" id="q3">
+    <p><b>
+        <span class="en">3. What usually happens to a dairy cow's calf shortly after birth?</span>
+        <span class="fi" style="display:none">3. Mitä lypsylehmän vasikalle yleensä tapahtuu pian syntymän jälkeen?</span>
+    </b></p>
+
+    <button type="button" class="option" onclick="selectAnswer('q3','A',this)">
+        <span class="en">A) Calf gets to spend two months with the mother</span>
+        <span class="fi" style="display:none">A) Vasikka saa viettää emänsä kanssa kaksi kuukautta.</span>
+    </button>
+    <button type="button" class="option" onclick="selectAnswer('q3','B',this)">
+        <span class="en">B) Calf gets to spend a few hours with the mother and then gets separated</span>
+        <span class="fi" style="display:none">B) Vasikka saa viettää emänsä kanssa muutaman tunnin, minkä jälkeen heidät erotetaan toisistaan.</span>
+    </button>
+    <button type="button" class="option" onclick="selectAnswer('q3','C',this)">
+        <span class="en">C) Calf gets to spend two weeks with the mother</span>
+        <span class="fi" style="display:none">C) Vasikka saa viettää emänsä kanssa kaksi viikkoa.</span>
+    </button>
+
+    <div class="feedback" id="feedback3"></div>
+</div>
+
+<!-- QUESTION 4 -->
+<div class="question" id="q4">
+    <p><b>
+        <span class="en">4. Which land animal is the most commonly killed for food worldwide?</span>
+        <span class="fi" style="display:none">4. Mikä maaeläin tapetaan maailmanlaajuisesti eniten ruoaksi?</span>
+    </b></p>
+
+    <button type="button" class="option" onclick="selectAnswer('q4','A',this)">
+        <span class="en">A) Cows</span><span class="fi" style="display:none">A) Nauta</span>
+    </button>
+    <button type="button" class="option" onclick="selectAnswer('q4','B',this)">
+        <span class="en">B) Pigs</span><span class="fi" style="display:none">B) Sika</span>
+    </button>
+    <button type="button" class="option" onclick="selectAnswer('q4','C',this)">
+        <span class="en">C) Chickens</span><span class="fi" style="display:none">C) Kana</span>
+    </button>
+    <button type="button" class="option" onclick="selectAnswer('q4','D',this)">
+        <span class="en">D) Sheep</span><span class="fi" style="display:none">D) Lammas</span>
+    </button>
+
+    <div class="feedback" id="feedback4"></div>
+</div>
+
+<!-- QUESTION 5 -->
+<div class="question" id="q5">
+    <p><b>
+        <span class="en">5. Which of these products usually comes from animals that have been exploited?</span>
+        <span class="fi" style="display:none">5. Mikä näistä tuotteista on yleensä peräisin hyväksikytetyistä eläimistä?</span>
+    </b></p>
+
+    <button type="button" class="option" onclick="selectAnswer('q5','A',this)">
+        <span class="en">A) Wool sweater</span><span class="fi" style="display:none">A) Villapaita</span>
+    </button>
+    <button type="button" class="option" onclick="selectAnswer('q5','B',this)">
+        <span class="en">B) Wool sweater & leather gloves</span><span class="fi" style="display:none">B) Villapaita & nahkahanskat</span>
+    </button>
+    <button type="button" class="option" onclick="selectAnswer('q5','C',this)">
+        <span class="en">C) Silk scarf & down jacket</span><span class="fi" style="display:none">C) Silkkihuivi & untuvatakki</span>
+    </button>
+    <button type="button" class="option" onclick="selectAnswer('q5','D',this)">
+        <span class="en">D) All of them</span><span class="fi" style="display:none">D) Kaikki edellä mainitut</span>
+    </button>
+
+    <div class="feedback" id="feedback5"></div>
+</div>
+
+<!-- QUESTION 6 -->
+<div class="question" id="q6">
+    <p><b>
+        <span class="en">6. What percentage of pigs in intensive farming systems have access to the outdoors during their lives?</span>
+        <span class="fi" style="display:none">6. Kuinka suurella osalla tehotuotannon sioista on elämänsä aikana mahdollisuus päästä ulos?</span>
+    </b></p>
+
+    <button type="button" class="option" onclick="selectAnswer('q6','A',this)">
+        <span class="en">A) 10%</span><span class="fi" style="display:none">A) 10 %</span>
+    </button>
+    <button type="button" class="option" onclick="selectAnswer('q6','B',this)">
+        <span class="en">B) 20%</span><span class="fi" style="display:none">B) 20 %</span>
+    </button>
+    <button type="button" class="option" onclick="selectAnswer('q6','C',this)">
+        <span class="en">C) Less than 1%</span><span class="fi" style="display:none">C) Alle 1 %</span>
+    </button>
+    <button type="button" class="option" onclick="selectAnswer('q6','D',this)">
+        <span class="en">D) Around 5%</span><span class="fi" style="display:none">D) Noin 5 %</span>
+    </button>
+
+    <div class="feedback" id="feedback6"></div>
+</div>
+
+<!-- QUESTION 7 -->
+<div class="question" id="q7">
+    <p><b>
+        <span class="en">7. Which of these animals is generally considered as intelligent as a 3-year-old human child?</span>
+        <span class="fi" style="display:none">7. Minkä näistä eläimistä arvioidaan olevan älykkyydeltään noin 3-vuotiaan lapsen tasolla?</span>
+    </b></p>
+
+    <button type="button" class="option" onclick="selectAnswer('q7','A',this)">
+        <span class="en">A) Chicken</span><span class="fi" style="display:none">A) Kana</span>
+    </button>
+    <button type="button" class="option" onclick="selectAnswer('q7','B',this)">
+        <span class="en">B) Pig</span><span class="fi" style="display:none">B) Sika</span>
+    </button>
+    <button type="button" class="option" onclick="selectAnswer('q7','C',this)">
+        <span class="en">C) Sheep</span><span class="fi" style="display:none">C) Lammas</span>
+    </button>
+    <button type="button" class="option" onclick="selectAnswer('q7','D',this)">
+        <span class="en">D) Cow</span><span class="fi" style="display:none">D) Lehmä</span>
+    </button>
+
+    <div class="feedback" id="feedback7"></div>
+</div>
+
+<!-- QUESTION 8 -->
+<div class="question" id="q8">
+    <p><b>
+        <span class="en">8. How old do you think a chicken could naturally live? How old is she typically when sent to slaughter by the poultry industry?</span>
+        <span class="fi" style="display:none">8. Kuinka vanhaksi kana voisi luonnostaan elää? Minkä ikäisenä hänet yleensä teurastetaan siipikarjateollisuudessa?</span>
+    </b></p>
+
+    <button type="button" class="option" onclick="selectAnswer('q8','A',this)">
+        <span class="en">A) Natural lifespan: 9 to 10 yrs. Slaughtered at 7 to 8 years.</span>
+        <span class="fi" style="display:none">A) Luonnollinen elinikä: 9–10 vuotta. Teurastetaan 7–8 vuotiaana.</span>
+    </button>
+    <button type="button" class="option" onclick="selectAnswer('q8','B',this)">
+        <span class="en">B) Natural lifespan: 5 yrs. Slaughtered at 4 yrs.</span>
+        <span class="fi" style="display:none">B) Luonnollinen elinikä: 5 vuotta. Teurastetaan 4 vuotiaana.</span>
+    </button>
+    <button type="button" class="option" onclick="selectAnswer('q8','C',this)">
+        <span class="en">C) Natural lifespan: 8 to 10 yrs. Slaughtered at 4 to 5 yrs.</span>
+        <span class="fi" style="display:none">C) Luonnollinen elinikä: 8–10 vuotta. Teurastetaan 4–5 vuotiaana.</span>
+    </button>
+    <button type="button" class="option" onclick="selectAnswer('q8','D',this)">
+        <span class="en">D) Natural lifespan: 8 to 10 yrs. Slaughtered at 5 to 6 weeks.</span>
+        <span class="fi" style="display:none">D) Luonnollinen elinikä: 8–10 vuotta. Teurastetaan 5–6 viikon ikäisenä.</span>
+    </button>
+
+    <div class="feedback" id="feedback8"></div>
+</div>
+
+<!-- QUESTION 9 -->
+<div class="question" id="q9">
+    <p><b>
+        <span class="en">9. Fish do not feel pain.</span>
+        <span class="fi" style="display:none">9. Kalat eivät tunne kipua.</span>
+    </b></p>
+
+    <button type="button" class="option" onclick="selectAnswer('q9','A',this)">
+        <span class="en">A) True</span><span class="fi" style="display:none">A) Totta</span>
+    </button>
+    <button type="button" class="option" onclick="selectAnswer('q9','B',this)">
+        <span class="en">B) False</span><span class="fi" style="display:none">B) Ei pidä paikkaansa</span>
+    </button>
+
+    <div class="feedback" id="feedback9"></div>
+</div>
+
+<!-- QUESTION 10 -->
+<div class="question" id="q10">
+    <p><b>
+        <span class="en">10. Eläinten hyvinvointi ja eläinoikeudet eivät tarkoita samaa asiaa.</span>
+        <span class="fi" style="display:none">10. Eläinten hyvinvointi ja eläinten oikeudet eivät ole sama asia.</span>
+    </b></p>
+
+    <button type="button" class="option" onclick="selectAnswer('q10','A',this)">
+        <span class="en">A) True</span><span class="fi" style="display:none">A) Totta</span>
+    </button>
+    <button type="button" class="option" onclick="selectAnswer('q10','B',this)">
+        <span class="en">B) False</span><span class="fi" style="display:none">B) Ei pidä paikkaansa</span>
+    </button>
+
+    <div class="feedback" id="feedback10"></div>
+</div>
+
+<!-- QUESTION 11 -->
+<div class="question" id="q11">
+    <p><b>
+        <span class="en">11. Approximately how many land animals are slaughtered for food worldwide every year?</span>
+        <span class="fi" style="display:none">11. Noin kuinka monta maaeläintä teurastetaan ruoaksi vuosittain maailmanlaajuisesti?</span>
+    </b></p>
+
+    <button type="button" class="option" onclick="selectAnswer('q11','A',this)">
+        <span class="en">A) 85 to 90 million</span><span class="fi" style="display:none">A) 85–90 miljoonaa</span>
+    </button>
+    <button type="button" class="option" onclick="selectAnswer('q11','B',this)">
+        <span class="en">B) 80 million</span><span class="fi" style="display:none">B) 80 miljoonaa</span>
+    </button>
+    <button type="button" class="option" onclick="selectAnswer('q11','C',this)">
+        <span class="en">C) 85 to 90 billion</span><span class="fi" style="display:none">C) 85–90 miljardia</span>
+    </button>
+    <button type="button" class="option" onclick="selectAnswer('q11','D',this)">
+        <span class="en">D) 800 to 850 million</span><span class="fi" style="display:none">D) 800–850 miljoonaa</span>
+    </button>
+
+    <div class="feedback" id="feedback11"></div>
+</div>
+
+<!-- QUESTION 12 -->
+<div class="question" id="q12">
+    <p><b>
+        <span class="en">12. Approximately how many vertebrates are killed for food worldwide every year?</span>
+        <span class="fi" style="display:none">12. Noin kuinka monta selkärankaista tapetaan ruoaksi vuosittain maailmanlaajuisesti?</span>
+    </b></p>
+
+    <button type="button" class="option" onclick="selectAnswer('q12','A',this)">
+        <span class="en">A) 772 billion</span><span class="fi" style="display:none">A) 772 miljardia</span>
+    </button>
+    <button type="button" class="option" onclick="selectAnswer('q12','B',this)">
+        <span class="en">B) 72 million</span><span class="fi" style="display:none">B) 72 miljoonaa</span>
+    </button>
+    <button type="button" class="option" onclick="selectAnswer('q12','C',this)">
+        <span class="en">C) 72 billion</span><span class="fi" style="display:none">C) 72 miljardia</span>
+    </button>
+    <button type="button" class="option" onclick="selectAnswer('q12','D',this)">
+        <span class="en">D) 7 billion</span><span class="fi" style="display:none">D) 7 miljardia</span>
+    </button>
+
+    <div class="feedback" id="feedback12"></div>
+</div>
+
+<button type="button" class="submit" onclick="calculateScore()">
+    <span class="en">Submit Quiz</span>
+    <span class="fi" style="display:none">Lähetä vastaukset</span>
+</button>
+
+</form>
+
+<script>
+let selectedAnswers = {};
+let currentLang = 'en';
+
+function setLanguage(lang){
+    currentLang = lang;
+    document.querySelectorAll('.en').forEach(e => e.style.display = lang === 'en' ? '' : 'none');
+    document.querySelectorAll('.fi').forEach(e => e.style.display = lang === 'fi' ? '' : 'none');
+}
+
+function selectAnswer(question, answer, button) {
+    selectedAnswers[question] = answer;
+    let buttons = document.querySelectorAll("#" + question + " .option");
+    buttons.forEach(function(btn){
+        btn.classList.remove("selected");
+    });
+    button.classList.add("selected");
+}
+
+function calculateScore(){
+    const correctAnswers = {
+        q1:"C", q2:"C", q3:"B", q4:"C", q5:"D", q6:"C",
+        q7:"B", q8:"D", q9:"B", q10:"A", q11:"C", q12:"A"
+    };
+
+    const explanations = {
+        q1: "<span class='en'>Male chicks are commonly killed shortly after hatching because they cannot lay eggs and are not profitable for meat production.</span><span class='fi' style='display:none'>Kukkotiput tapetaan yleensä pian kuoriutumisen jälkeen, sillä he eivät muni eivätkä ole kannattavia myöskään lihantuotannossa.</span>",
+
+        q2: "<span class='en'>Dairy cows can naturally live 15 to 20+ years. In commercial dairy systems they are typically slaughtered around 4 to 5 years when milk production declines.</span><span class='fi' style='display:none'>Lypsylehmä voisi luonnostaan elää 15–20-vuotiaaksi tai vanhemmaksikin. Kaupallisessa maidontuotannossa hänet teurastetaan tyypillisesti noin 4–5-vuotiaana, silllä siinä iässä maidontuotanto alkaa hiipua.</span>",
+
+        q3: "<span class='en'>In most commercial dairy systems, calves are separated from their mothers within hours or the first day so the milk can be collected for humans.</span><span class='fi' style='display:none'>Useimmissa teollisissa maitotiloissa vasikat erotetaan emostaan muutaman tunnin tai ensimmäisen vuorokauden kuluessa, jotta maito voidaan kerätä ihmisille.</span>",
+
+        q4: "<span class='en'>Chickens are the most commonly killed land animals for food worldwide.</span><span class='fi' style='display:none'>Kanat ovat maailman eniten teurastettu maaeläinlaji ruoantuotannossa.</span>",
+
+        q5: "<span class='en'>All of them. Wool, leather, silk and down are animal-derived products connected to animal exploitation.</span><span class='fi' style='display:none'>Kaikki. Villa, nahka, silkki ja untuvat ovat eläinperäisiä tuotteita, joiden taustalla on eläinten hyväksikäyttöä.</span>",
+
+        q6: "<span class='en'>Less than 1%. In Finland, approximately 99% of pigs are raised indoors, with only a small fraction having outdoor access.</span><span class='fi' style='display:none'>Alle 1 %. Suomessa noin 99 % sioista kasvatetaan sisätiloissa, ja vain hyvin pienellä osalla on mahdollisuus päästä ulkoilemaan.</span>",
+
+        q7: "<span class='en'>Pigs are highly intelligent animals with cognitive abilities comparable to young children.</span><span class='fi' style='display:none'>Siat ovat erittäin älykkäitä eläimiä, joiden kognitiivisia kykyjä on verrattu pienten lasten kykyihin.</span>",
+
+        q8: "<span class='en'>Modern broiler chickens are commonly slaughtered at around 5 to 6 weeks of age despite having a natural lifespan of many years.</span><span class='fi' style='display:none'>Broilerit teurastetaan tavallisesti jo noin 5–6 viikon iässä, vaikka lajin luonnollinen elinikä on useita vuosia.</span>",
+
+        q9: "<span class='en'>False. Scientific evidence indicates that fish have pain receptors, respond to painful stimuli, and show behaviours consistent with pain experience.</span><span class='fi' style='display:none'>Ei pidä paikkaansa. Tieteellinen tutkimus osoittaa, että kaloilla on kipureseptoreita, ne reagoivat kivuliaisiin ärsykkeisiin ja niiden käyttäytyminen viittaa kivun kokemiseen.</span>",
+
+        q10: "<span class='en'>True. Animal justice and animal welfare are different because animal justice seeks rights and freedom from human use, while animal welfare focuses on reducing pain and improving treatment while use continues. Animal justice believes animals have a moral right not to be used as property. Animal welfare accepts that humans can use animals as long as they do not suffer too much.</span><span class='fi' style='display:none'>Totta. Eläinoikeudet ja eläinten hyvinvointi ovat eri asioita. Eläinoikeusajattelu tavoittelee eläimille vapautta ihmisen hyväksikäytöstä, kun taas eläinten hyvinvointi keskittyy kärsimyksen vähentämiseen ja kohtelun parantamiseen eläinten hyödyntämisen silti jatkuessa. Eläinoikeusajattelun mukaan eläimillä on moraalinen oikeus olla joutumatta ihmisen omaisuudeksi. Eläinten hyvinvointiajattelu puolestaan hyväksyy sen, että ihminen voi käyttää eläimiä, kunhan ne eivät kärsi liikaa.</span>",
+
+        q11: "<span class='en'>Approximately 85 to 90 billion (thats 10x human population) land animals are slaughtered for food worldwide every year.</span><span class='fi' style='display:none'>Maailmassa teurastetaan vuosittain arviolta 85–90 miljardia maaeläintä ruoaksi.</span>",
+
+        q12: "<span class='en'>Approximately 772 billion (thats 96x human population) vertebrates are killed for food worldwide every year. 88% of them are fish.</span><span class='fi' style='display:none'>Noin 772 miljardia (noin 96 kertaa ihmiskunnan määrä) selkärankaista tapetaan ruoaksi maailmanlaajuisesti joka vuosi. Niistä 88 % on kaloja.</span>"
+    };
+
+    let score = 0;
+
+    for(let question in correctAnswers){
+        let feedback = document.getElementById("feedback" + question.substring(1));
+        let userAnswer = selectedAnswers[question];
+        let userAnswerDisplay = userAnswer ? userAnswer : "<span class='en'>No answer selected</span><span class='fi' style='display:none'>Ei valittua vastausta</span>";
+
+        if(userAnswer === correctAnswers[question]){
+            score++;
+            feedback.innerHTML =
+                "<p class='correct'><span class='en'>✓ Correct Answer!</span><span class='fi' style='display:none'>✓ Oikein!</span></p>" +
+                "<p><b><span class='en'>Your answer:</span><span class='fi' style='display:none'>Vastauksesi:</span></b> " + userAnswer + "</p>" +
+                "<p><b><span class='en'>Correct answer:</span><span class='fi' style='display:none'>Oikea vastaus:</span></b> " + correctAnswers[question] + "</p>" +
+                "<p>" + explanations[question] + "</p>";
+        } else {
+            feedback.innerHTML =
+                "<p class='incorrect'><span class='en'>✗ Incorrect Answer</span><span class='fi' style='display:none'>✗ Väärin</span></p>" +
+                "<p><b><span class='en'>Your answer:</span><span class='fi' style='display:none'>Vastauksesi:</span></b> " + userAnswerDisplay + "</p>" +
+                "<p class='correct'><b><span class='en'>Correct answer:</span><span class='fi' style='display:none'>Oikea vastaus:</span></b> " + correctAnswers[question] + "</p>" +
+                "<p>" + explanations[question] + "</p>";
+        }
+    }
+
+    document.getElementById("score").innerHTML =
+        "<span class='en'>Your Final Score: " + score + " / 12</span>" +
+        "<span class='fi' style='display:none'>Lopullinen pistemääräsi: " + score + " / 12</span>";
+
+    setLanguage(currentLang);
+    window.scrollTo(0,0);
+}
+</script>
+
+</body>
+</html>
