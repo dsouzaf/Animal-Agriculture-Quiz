@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>How much do you know about our animal agriculture?</title>
+
+<style>
+body {
+    font-family: Arial, sans-serif;
+    max-width: 900px;
+    margin: auto;
+    padding: 20px;
+    background:#f5f5f5;
+    line-height:1.2;
+    font-size: 26px;
+}
+
+h1 {
+    text-align:center;
+}
+
+.question {
+    background:white;
+    padding:20px;
+    margin:20px 0;
+    border-radius:8px;
+}
+
+.question p {
+    font-size: 42px;
+    font-weight: semibold;
+}
+
+.option {
+    display:block;
+    width:100%;
+    text-align:left;
+    padding:14px;
+    margin:8px 0;
+    border:1px solid #ccc;
+    border-radius:6px;
+    background:#fafafa;
+    cursor:pointer;
+    font-size:40px;
+}
+
+
+.option:hover {
+    background:#e8f5e9;
+}
+
+
+.option.selected {
+    background:#c8e6c9;
+    border-color:#4CAF50;
+}
+
+
+.feedback {
+
+    margin-top:20px;
+    padding:18px;
+    background:#f0f0f0;
+    border-radius:6px;
+    font-size: 32px;
+}
+
+
+.correct {
+
+color:green;
+font-weight:bold;
+font-size: 32px;
+
+}
+
+
+.incorrect {
+
+color:red;
+font-weight:bold;
+font-size: 32px;
+
+}
+
+
+button.submit {
+
+background:#4CAF50;
+color:white;
+padding:28px 50px;
+border:none;
+border-radius:6px;
+cursor:pointer;
+font-size:50px;
+
+}
+#score {
+    font-size: 46px;
+    font-weight: bold;
+    text-align: center;
+    color: #2e7d32;
+    margin-bottom: 30px;
+}
+
+</style>
+
+
+</head>
+
+
+<body>
+
+
+<h1><span class="en">How much do you know about our animal agriculture?</span><span class="fi" style="display:none">Kuinka paljon tiedät eläintuotannosta?
+</span></h1>
+
+<!-- LANGUAGE TOGGLE START -->
+<!-- Add after <h1> -->
+<div style="text-align:center;margin:20px 0;">
+<button type="button" class="langButton" onclick="setLanguage('en')">🇬🇧 English</button>
+<button type="button" class="langButton" onclick="setLanguage('fi')">🇫🇮 Suomi</button>
+</div>
+
+<style>
+.langButton{padding:12px 25px;margin:5px;font-size:20px;cursor:pointer;border-radius:6px;border:1px solid #999;background:#fff}
+.langButton:hover{background:#eee}
+</style>
+
+<script>
+function setLanguage(lang){
+ document.querySelectorAll('.en').forEach(e=>e.style.display=lang==='en'?'':'none');
+ document.querySelectorAll('.fi').forEach(e=>e.style.display=lang==='fi'?'':'none');
+}
+</script>
+<!-- Example replacement:
+<span class="en">English text</span><span class="fi" style="display:none">PUT_FINNISH_TRANSLATION_HERE</span>
+-->
+<!-- LANGUAGE TOGGLE END -->
+
+
+
+<h2 id="score"></h2>
+
+
+
+<form id="quizForm">
+
+
+
+<div class="question" id="q1">
+
+<p><b>1. What usually happens to male chicks in the egg industry once they are hatched?</b></p>
+
+<button type="button" class="option" onclick="selectAnswer('q1','A',this)">
+A) They are raised for meat
+</button>
+
+<button type="button" class="option" onclick="selectAnswer('q1','B',this)">
+B) They become egg laying hens later
+</button>
+
+<button type="button" class="option" onclick="selectAnswer('q1','C',this)">
+C) They are thrown into macerators and crushed within 72hrs of hatching because they are not profitable for the industry
+</button>
+
+<button type="button" class="option" onclick="selectAnswer('q1','D',this)">
+D) They are released onto farms where they grow to live a comfortable life
+</button>
+
+
+<div class="feedback" id="feedback1"></div>
+
+</div>
+
+
+
+
+<div class="question" id="q2">
+
+<p><b>2. How old do you think a dairy cow could naturally live? How old is she typically when sent to slaughter?</b></p>
+
+
+<button type="button" class="option" onclick="selectAnswer('q2','A',this)">
+A) Natural lifespan: 9 to 10 yrs. Slaughtered at 7 to 8 yrs.
+</button>
+
+
+<button type="button" class="option" onclick="selectAnswer('q2','B',this)">
+B) Natural lifespan: 5 yrs. Slaughtered at 5 yrs.
+</button>
+
+
+<button type="button" class="option" onclick="selectAnswer('q2','C',this)">
+C) Natural lifespan: 15 to 20 yrs. Slaughtered at 4 to 5 yrs.
+</button>
+
+
+<button type="button" class="option" onclick="selectAnswer('q2','D',this)">
+D) Natural lifespan: 9 to 10 yrs. Slaughtered at 9 to 10 yrs.
+</button>
+
+
+<div class="feedback" id="feedback2"></div>
+
+</div>
+
+
+
+<div class="question" id="q3">
+
+<p><b>3. What usually happens to a dairy cow's calf shortly after birth?</b></p>
+
+
+<button type="button" class="option" onclick="selectAnswer('q3','A',this)">
+A) Calf gets to spend two months with the mother
+</button>
+
+
+<button type="button" class="option" onclick="selectAnswer('q3','B',this)">
+B) Calf gets to spend a few hours with the mother and then gets separated
+</button>
+
+
+<button type="button" class="option" onclick="selectAnswer('q3','C',this)">
+C) Calf gets to spend two weeks with the mother
+</button>
+
+
+<div class="feedback" id="feedback3"></div>
+
+</div>
+
+
+
+
+
+<div class="question" id="q4">
+
+<p><b>4. Which land animal is the most commonly killed for food worldwide?</b></p>
+
+
+<button type="button" class="option" onclick="selectAnswer('q4','A',this)">
+A) Cows
+</button>
+
+
+<button type="button" class="option" onclick="selectAnswer('q4','B',this)">
+B) Pigs
+</button>
+
+
+<button type="button" class="option" onclick="selectAnswer('q4','C',this)">
+C) Chickens
+</button>
+
+
+<button type="button" class="option" onclick="selectAnswer('q4','D',this)">
+D) Sheep
+</button>
+
+
+<div class="feedback" id="feedback4"></div>
+
+</div>
+
+
+
+
+
+<div class="question" id="q5">
+
+<p><b>5. Which of these products usually comes from animals that have been exploited?</b></p>
+
+
+<button type="button" class="option" onclick="selectAnswer('q5','A',this)">
+A) Wool sweater
+</button>
+
+
+<button type="button" class="option" onclick="selectAnswer('q5','B',this)">
+B) Wool sweater & leather gloves
+</button>
+
+
+<button type="button" class="option" onclick="selectAnswer('q5','C',this)">
+C) Silk scarf & down jacket
+</button>
+
+
+<button type="button" class="option" onclick="selectAnswer('q5','D',this)">
+D) All of them
+</button>
+
+
+<div class="feedback" id="feedback5"></div>
+
+</div>
+
+<div class="question" id="q6">
+
+<p><b>6. What percentage of pigs in intensive farming systems have access to the outdoors during their lives?</b></p>
+
+
+<button type="button" class="option" onclick="selectAnswer('q6','A',this)">
+A) 10%
+</button>
+
+
+<button type="button" class="option" onclick="selectAnswer('q6','B',this)">
+B) 20%
+</button>
+
+
+<button type="button" class="option" onclick="selectAnswer('q6','C',this)">
+C) Less than 1%
+</button>
+
+
+<button type="button" class="option" onclick="selectAnswer('q6','D',this)">
+D) Around 5%
+</button>
+
+
+<div class="feedback" id="feedback6"></div>
+
+</div>
+
+
+
+
+
+<div class="question" id="q7">
+
+<p><b>7. Which of these animals is generally considered as intelligent as a 3-year-old human child?</b></p>
+
+
+<button type="button" class="option" onclick="selectAnswer('q7','A',this)">
+A) Chicken
+</button>
+
+
+<button type="button" class="option" onclick="selectAnswer('q7','B',this)">
+B) Pig
+</button>
+
+
+<button type="button" class="option" onclick="selectAnswer('q7','C',this)">
+C) Sheep
+</button>
+
+
+<button type="button" class="option" onclick="selectAnswer('q7','D',this)">
+D) Cow
+</button>
+
+
+<div class="feedback" id="feedback7"></div>
+
+</div>
+
+
+
+
+
+<div class="question" id="q8">
+
+<p><b>8. How old do you think a chicken could naturally live? How old is she typically when sent to slaughter by the poultry industry?</b></p>
+
+
+<button type="button" class="option" onclick="selectAnswer('q8','A',this)">
+A) Natural lifespan: 9 to 10 yrs. Slaughtered at 7 to 8 years.
+</button>
+
+
+<button type="button" class="option" onclick="selectAnswer('q8','B',this)">
+B) Natural lifespan: 5 yrs. Slaughtered at 4 yrs.
+</button>
+
+
+<button type="button" class="option" onclick="selectAnswer('q8','C',this)">
+C) Natural lifespan: 8 to 10 yrs. Slaughtered at 4 to 5 yrs.
+</button>
+
+
+<button type="button" class="option" onclick="selectAnswer('q8','D',this)">
+D) Natural lifespan: 8 to 10 yrs. Slaughtered at 5 to 6 weeks.
+</button>
+
+
+<div class="feedback" id="feedback8"></div>
+
+</div>
+
+
+
+
+
+<div class="question" id="q9">
+
+<p><b>9. Fish do not feel pain.</b></p>
+
+
+<button type="button" class="option" onclick="selectAnswer('q9','A',this)">
+A) True
+</button>
+
+
+<button type="button" class="option" onclick="selectAnswer('q9','B',this)">
+B) False
+</button>
+
+
+<div class="feedback" id="feedback9"></div>
+
+</div>
+
+
+
+
+
+<div class="question" id="q10">
+
+<p><b>10. Animal welfare & animal justice are not the same thing.</b></p>
+
+
+<button type="button" class="option" onclick="selectAnswer('q10','A',this)">
+A) True
+</button>
+
+
+<button type="button" class="option" onclick="selectAnswer('q10','B',this)">
+B) False
+</button>
+
+
+<div class="feedback" id="feedback10"></div>
+
+</div>
+
+
+
+
+
+<div class="question" id="q11">
+
+<p><b>11. Approximately how many land animals are slaughtered for food worldwide every year?</b></p>
+
+
+<button type="button" class="option" onclick="selectAnswer('q11','A',this)">
+A) 85 to 90 million
+</button>
+
+
+<button type="button" class="option" onclick="selectAnswer('q11','B',this)">
+B) 80 million
+</button>
+
+
+<button type="button" class="option" onclick="selectAnswer('q11','C',this)">
+C) 85 to 90 billion
+</button>
+
+
+<button type="button" class="option" onclick="selectAnswer('q11','D',this)">
+D) 800 to 850 million
+</button>
+
+
+<div class="feedback" id="feedback11"></div>
+
+</div>
+
+
+
+
+
+<div class="question" id="q12">
+
+<p><b>12. Approximately how many vertebrates are killed for food worldwide every year?</b></p>
+
+
+<button type="button" class="option" onclick="selectAnswer('q12','A',this)">
+A) 772 billion
+</button>
+
+
+<button type="button" class="option" onclick="selectAnswer('q12','B',this)">
+B) 72 million
+</button>
+
+
+<button type="button" class="option" onclick="selectAnswer('q12','C',this)">
+C) 72 billion
+</button>
+
+
+<button type="button" class="option" onclick="selectAnswer('q12','D',this)">
+D) 7 billion
+</button>
+
+
+<div class="feedback" id="feedback12"></div>
+
+</div>
+
+
+
+<button type="button" class="submit" onclick="calculateScore()">
+Submit Quiz
+</button>
+
+
+</form>
+<script>
+
+let selectedAnswers = {};
+
+
+// Select answer button
+
+function selectAnswer(question, answer, button) {
+
+    selectedAnswers[question] = answer;
+
+
+    // Remove selected style from other buttons in same question
+
+    let buttons = document.querySelectorAll("#" + question + " .option");
+
+    buttons.forEach(function(btn){
+
+        btn.classList.remove("selected");
+
+    });
+
+
+    // Highlight selected button
+
+    button.classList.add("selected");
+
+}
+
+
+
+
+function calculateScore(){
+
+
+const correctAnswers = {
+
+q1:"C",
+q2:"C",
+q3:"B",
+q4:"C",
+q5:"D",
+q6:"C",
+q7:"B",
+q8:"D",
+q9:"B",
+q10:"A",
+q11:"C",
+q12:"A"
+
+};
+
+
+
+const explanations = {
+
+
+q1:
+"Male chicks are commonly killed shortly after hatching because they cannot lay eggs and are not profitable for meat production.",
+
+
+q2:
+"Dairy cows can naturally live 15 to 20+ years. In commercial dairy systems they are typically slaughtered around 4 to 5 years when milk production declines.",
+
+
+q3:
+"In most commercial dairy systems, calves are separated from their mothers within hours or the first day so the milk can be collected for humans.",
+
+
+q4:
+"Chickens are the most commonly killed land animals for food worldwide.",
+
+
+q5:
+"All of them. Wool, leather, silk and down are animal-derived products connected to animal exploitation.",
+
+
+q6:
+"Less than 1%. In Finland, approximately 99% of pigs are raised indoors, with only a small fraction having outdoor access.",
+
+
+q7:
+"Pigs are highly intelligent animals with cognitive abilities comparable to young children.",
+
+
+q8:
+"Modern broiler chickens are commonly slaughtered at around 5 to 6 weeks of age despite having a natural lifespan of many years.",
+
+
+q9:
+"False. Scientific evidence indicates that fish have pain receptors, respond to painful stimuli, and show behaviours consistent with pain experience.",
+
+
+q10:
+"True. Animal justice and animal welfare are different because animal justice seeks rights and freedom from human use, while animal welfare focuses on reducing pain and improving treatment while use continues. Animal justice believes animals have a moral right not to be used as property. Animal welfare accepts that humans can use animals as long as they do not suffer too much.",
+
+
+q11:
+"Approximately 85 to 90 billion (thats 10x human population) land animals are slaughtered for food worldwide every year.",
+
+
+q12:
+"Approximately 772 billion (thats 96x human population) vertebrates are killed for food worldwide every year. 88% of them are fish."
+
+};
+
+
+
+let score = 0;
+
+
+
+for(let question in correctAnswers){
+
+
+let feedback = document.getElementById(
+"feedback" + question.substring(1)
+);
+
+
+
+let userAnswer = selectedAnswers[question];
+
+
+
+if(userAnswer === correctAnswers[question]){
+
+
+score++;
+
+
+feedback.innerHTML =
+
+"<p class='correct'>✓ Correct Answer!</p>" +
+
+"<p><b>Your answer:</b> " + userAnswer + "</p>" +
+
+"<p><b>Correct answer:</b> " +
+correctAnswers[question] +
+"</p>" +
+
+"<p>" +
+explanations[question] +
+"</p>";
+
+
+
+}
+
+else{
+
+
+feedback.innerHTML =
+
+"<p class='incorrect'>✗ Incorrect Answer</p>" +
+
+"<p><b>Your answer:</b> " +
+(userAnswer || "No answer selected") +
+"</p>" +
+
+"<p class='correct'><b>Correct answer:</b> " +
+correctAnswers[question] +
+"</p>" +
+
+"<p>" +
+explanations[question] +
+"</p>";
+
+}
+
+
+}
+
+
+
+
+document.getElementById("score").innerHTML =
+
+"Your Final Score: " + score + " / 12";
+
+
+
+window.scrollTo(0,0);
+
+
+}
+
+
+</script>
+
+
+</body>
+
+</html>
+
+<!-- NOTE: Replace every visible text similarly using <span class='en'>...</span><span class='fi' style='display:none'>PUT_FINNISH_TRANSLATION_HERE</span>. -->
